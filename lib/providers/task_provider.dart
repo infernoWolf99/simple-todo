@@ -9,10 +9,10 @@ class TaskProvider extends ChangeNotifier {
 
   void addTask(String title) {
     _tasks.add(Task(title));
-    notifyListeners;
+    notifyListeners();
   }
 
-  void removeTasks(int index) {
+  void removeTask(int index) {
     _tasks.removeAt(index);
   }
 }
