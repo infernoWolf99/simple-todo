@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   },
                   child: Text("Add new To-Do"),
-                ),z
+                ),
               ],
             ),
     );
