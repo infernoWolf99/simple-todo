@@ -1,4 +1,5 @@
-class Task{
-  final String title;
-  Task(this.title);
+class Task {
+  String title;
+  bool completed;
+  Task(this.title, this.completed);
 }

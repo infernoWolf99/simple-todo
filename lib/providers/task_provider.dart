@@ -8,7 +8,7 @@ class TaskProvider extends ChangeNotifier {
   List<Task> get tasks => _tasks;
 
   void addTask(String title) {
-    _tasks.add(Task(title));
+    _tasks.add(Task(title, false));
     notifyListeners();
   }
 
