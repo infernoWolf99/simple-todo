@@ -35,12 +35,17 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("Add Task")),
       body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(controller: _controller, decoration: InputDecoration()),
-            ElevatedButton(onPressed: _submitTask, child: Text('Add To-Do')),
-          ],
+        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextField(controller: _controller, decoration: InputDecoration()),
+              SizedBox(height: 16, width: 0),
+              ElevatedButton(onPressed: _submitTask, child: Text('Add To-Do')),
+            ],
+          ),
         ),
       ),
     );

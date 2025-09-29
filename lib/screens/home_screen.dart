@@ -17,21 +17,26 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("My To-Do List")),
       body: taskProvider.tasks.isEmpty
-          ? Column(
-              children: [
-                Text("No To-Dos today"),
-                ElevatedButton(
-                  onPressed: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AddTaskScreen(),
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text("No To-Dos today"),
+                  SizedBox(height: 30, width: 0),
+                  ElevatedButton(
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AddTaskScreen(),
+                        ),
                       ),
-                    ),
-                  },
-                  child: Text('Add To-Do'),
-                ),
-              ],
+                    },
+                    child: Text('Add To-Do'),
+                  ),
+                ],
+              ),
             )
           : Column(
               children: [
@@ -76,7 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: Text(taskProvider.tasks[index].title),
                           value: taskProvider.tasks[index].completed,
                           onChanged: (bool? value) {
-                            // print(value);
                             setState(() {
                               if (value == true) {
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -108,19 +112,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AddTaskScreen(),
-                      ),
-                    ),
-                  },
-                  child: Text("Add new To-Do"),
-                ),
               ],
             ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddTaskScreen()),
+          );
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
